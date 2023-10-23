@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet  id="1"  author="tuyen.td">
+        <createTable  tableName="person">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="firstname" type="varchar(50)"/>
+        </createTable>
+        <addColumn  tableName="person">
+            <column  name="username"  type="varchar(8)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="2" author="tuyen.td">
+        <sql>
+            alter table person add gender NUMERIC(1)
+        </sql>
+        <rollback>
+            alter table person drop column gender;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="tuyen.td">
+        <sql>
+            alter table person add type NUMERIC(1)
+        </sql>
+        <rollback>
+            alter table person drop column type;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="tuyen.td">
+        <sql>
+            alter table person change id id int(10) unsigned auto_increment;
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="tuyen.td">
+        <sql>
+            alter table person MODIFY username varchar(100);
+        </sql>
+    </changeSet>
+
+
+</databaseChangeLog>

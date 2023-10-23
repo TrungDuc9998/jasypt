@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/test
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    database: mysql
+    show-sql: false
+  liquibase:
+    enabled: true
+    change-log: classpath:db.change-log/path-file-changelog.xml
+jasypt:
+  encryptor:
+    password: '123456aA@'
+    algorithm: 'PBEWithMD5AndTripleDES'
+    pool-size: 4
+    key-obtention-iterations: 1500
+    provider-name: 'SunJCE'
+    salt-generator-classname: 'org.jasypt.salt.RandomSaltGenerator'
+    iv-generator-classname: 'org.jasypt.iv.RandomIvGenerator'
+    string-output-type: 'base64'
