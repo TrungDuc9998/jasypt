@@ -31,6 +31,9 @@ public class Person implements Serializable {
     @Column(name = "USERNAME")
     private String username;
 
+    @Column(name = "PASSWORD")
+    private String password;
+
     @Column(name = "GENDER")
     private int gender;
 

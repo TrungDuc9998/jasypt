@@ -50,5 +50,32 @@
         </sql>
     </changeSet>
 
+    <changeSet id="6" author="tuyen.td">
+        <sql>
+            alter table person add password varchar(255);
+        </sql>
+        <rollback>
+            alter table person drop column password;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="7" author="tuyen.td">
+        <sql>
+            create table USER
+            (
+            ID int not null,
+            EMAIL              varchar(255)  default NULL,
+            FULLNAME           varchar(255) default NULL,
+            PASSWORD           varchar(255)  default NULL,
+            FIRSTNAME           varchar(255)  default NULL,
+            LASTNAME           varchar(255)  default NULL,
+            primary key (ID)
+            );
+        </sql>
+        <rollback>
+            drop table user;
+        </rollback>
+    </changeSet>
+
 
 </databaseChangeLog>

@@ -30,6 +30,9 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public PersonDTO get(long id) {
+        String[] a = {"MER", "VENUSSS", "EARTH", "MARS"};
+        System.out.println(a.length);
+        System.out.println(a[1].length());
         return this.personMapper.toDto(this.personRepository.getById(id));
     }
 }
