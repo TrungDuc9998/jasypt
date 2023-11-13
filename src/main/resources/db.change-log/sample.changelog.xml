@@ -77,5 +77,14 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="8" author="tuyen.td">
+        <sql>
+            alter table USER add role varchar(255);
+        </sql>
+        <rollback>
+            alter table USER drop column role;
+        </rollback>
+    </changeSet>
+
 
 </databaseChangeLog>
