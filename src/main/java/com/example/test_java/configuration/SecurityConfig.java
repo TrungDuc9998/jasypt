@@ -22,18 +22,17 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf()
-                .disable()
-                .authorizeHttpRequests()
+                .csrf().disable()
+                .authorizeHttpRequests() // authorize http request
                 .antMatchers("/api/v1/auth/**")
-                .permitAll()
-                .anyRequest()
+                .permitAll() // bất kì url đều ko cần xác thực
+                .anyRequest() // bất kì url đều phải có quyền
                 .authenticated()
                 .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionManagement() // vô hiệu hóa theo phiên
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // dùng STATELESS vì là JWT
                 .and()
-                .authenticationProvider(authenticationProvider)
+                .authenticationProvider(authenticationProvider) // cung cấp authenticationProvider là DAO
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); // call username, password authen filter vì khi xác thực jwt chúng ta cần check hết
 
 
