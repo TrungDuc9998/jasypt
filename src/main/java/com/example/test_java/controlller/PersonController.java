@@ -24,6 +24,6 @@ public class PersonController {
 
     @PostMapping("/get")
     public ResponseEntity<PersonDTO> get(@RequestBody PersonDTO personDTO) {
-        return ResponseEntity.ok().body(this.personService.get(personDTO.getId()));
+        return ResponseEntity.ok().body(this.personService.get(personDTO));
     }
 }

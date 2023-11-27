@@ -6,5 +6,5 @@ import com.example.test_java.model.dto.PersonDTO;
 public interface PersonService {
     Person save(PersonDTO personDTO);
 
-    PersonDTO get(long id);
+    PersonDTO get(PersonDTO personDTO);
 }
